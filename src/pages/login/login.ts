@@ -1,25 +1,41 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { NewsPage } from '../news/news';
+import { TabsPage } from '../tabs/tabs';
+import { CharitytabsPage } from '../charitytabs/charitytabs';
+import { AlertController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
-@IonicPage()
 @Component({
   selector: 'page-login',
-  templateUrl: 'login.html',
+  templateUrl: 'login.html'
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user = { "username": "", "password": "" };
+  value = 0;
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private storage: Storage) {
+
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  login() {
+
+    if (this.user.username == "test" && this.user.password == "123") {
+
+      this.navCtrl.push("TabsPage");
+
+    } else if (this.user.username == "NKF" && this.user.password == "789") {
+
+      this.navCtrl.push("CharitytabsPage");
+    
+    } else {
+      let alert = this.alertCtrl.create({
+        message: "Incorrect Username/password",
+        buttons: ['Dismiss']
+      });
+      alert.present();
+    }
   }
 
 }

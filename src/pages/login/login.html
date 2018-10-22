@@ -1,18 +1,30 @@
-<!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>login</ion-title>
-  </ion-navbar>
-
-</ion-header>
+<ion-content id="bg">
 
 
-<ion-content padding>
+  <img src="assets/imgs/charity.png" id="logo"/>
+
+  <ion-list id="loginCard">
+    <ion-item id="userStyle">
+      <ion-label stacked>Username</ion-label>
+      <ion-input type="text"  [(ngModel)]="user.username"></ion-input>
+    </ion-item>
+
+    <ion-item id="userStyle">
+      <ion-label stacked>Password</ion-label>
+      <ion-input type="password"  [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-row>
+    <ion-col style="text-align: center;">
+      <button ion-button round outline color="dark" id="loginButton" (click)="login()">Login</button>
+    </ion-col>
+  </ion-row>
+
+  <p style="text-align: left; padding-top: 20%; padding-left: 5%;">
+    <strong>Wish to start a campaign?
+      <u style="padding-left: 2%;">Fundraise Now</u>
+    </strong>
+  </p>
 
 </ion-content>
